@@ -12,7 +12,7 @@ export function HeroContent() {
       <SparklesBadge />
       
       <div className="relative z-10">
-        <p className="text-md text-gray-300 mb-8 max-w-2xl mx-auto">
+        <p className="text-md text-slate-200 mb-8 max-w-2xl mx-auto">
           Stop struggling with marketing decisions. Our AI assistant analyzes your business, 
           creates personalized strategies, and helps you execute them - all in real-time.
         </p>

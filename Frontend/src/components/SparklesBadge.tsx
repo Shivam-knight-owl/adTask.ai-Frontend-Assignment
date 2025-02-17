@@ -4,8 +4,7 @@ import { motion } from "framer-motion";
 
 export function SparklesBadge() {
   return (
-    <div className="relative inline-flex items-center bg-transparent border border-[#2f2f30] 
-                   rounded-2xl px-4 py-2 space-x-2 mt-22 mb-60 overflow-hidden ">
+    <div className="relative inline-flex items-center bg-gradient-to-r from-[#2f2f30] via-transparent to-[#202020] border border-[#2f2f30] rounded-2xl px-4 py-2 space-x-2 mt-22 mb-60 overflow-hidden ">
       
       {/* Thinner, continuous blade effect */}
       <motion.div
@@ -24,7 +23,7 @@ export function SparklesBadge() {
       <Sparkles size={20} className="text-white z-10" />
       
       {/* Text */}
-      <span className="text-sm text-white p-1.5 z-10 font-semibold">
+      <span className="text-sm text-white p-1.5 z-10 font-semibold tracking-wide">
         TRANSFORM YOUR DIGITAL PRESENCE WITH AI AGENTS
       </span>
     </div>

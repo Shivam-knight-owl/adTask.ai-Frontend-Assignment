@@ -9,7 +9,7 @@ export default function CTABtn() {
   }));
 
   return (
-    <button className="glow-btn relative mt-6 px-8 py-3 rounded-full bg-gradient-to-b from-[#3d527c] to-[#3e495e] text-white text-lg font-semibold shadow-lg transition overflow-hidden">
+    <button className="glow-btn relative mt-6 px-8 py-3 rounded-full bg-gradient-to-b from-[#3d527c] to-[#3e495e] text-white text-lg shadow-lg transition overflow-hidden border-2 border-[#7795d2]">
       {/* Sparkles Effect Inside Button */}
       <div className="absolute inset-0 pointer-events-none">
         {stars.map((star) => (

@@ -23,7 +23,7 @@ export const Navbar = () => {
 
   return (
     <div
-      className={`fixed top-5 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[75%] lg:w-[70%] z-50 rounded-2xl transition-all duration-300 ${
+      className={`fixed top-7.5 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[75%] lg:w-[70%] z-50 rounded-2xl transition-all duration-300 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
       }`}
     >
@@ -31,13 +31,13 @@ export const Navbar = () => {
       rounded-2xl shadow-[0px_5px_20px_rgba(255,255,255,0.05)] border border-[#2f2f30]">
         
         {/* Logo */}
-        <div className="text-xl font-semibold text-white whitespace-nowrap mr-36">
-          ad<b>Task.</b>ai
+        <div className="text-xl text-white whitespace-nowrap mr-36">
+          ad<b className="font-extrabold">Task.</b>ai
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex flex-1 justify-center items-center space-x-6 xl:space-x-10">
-          <div className="flex items-center space-x-4 lg:space-x-6">
+          <div className="flex items-center space-x-4 lg:space-x-7">
             <div className="flex items-center space-x-1">
               <button className="hover:text-gray-300 text-white text-sm whitespace-nowrap">Products</button>
               <ChevronDown size={16} className="text-white" />

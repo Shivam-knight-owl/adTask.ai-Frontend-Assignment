@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { User } from "lucide-react";
 
 export const ReachTarget = () => {
     const [rotation, setRotation] = useState(0);
@@ -9,6 +11,15 @@ export const ReachTarget = () => {
         }, 40);
         return () => clearInterval(interval);
     }, []);
+
+    const userPositions = [
+        { x: -100, y: -30, delay: 0 },
+        { x: 110, y: -20, delay: 0.5 },
+        { x: -10, y: 160, delay: 1 },
+        { x: 0, y: -110, delay: 0 },
+        { x: 80, y: 140, delay: 1.5 },
+        { x: -100, y: 140, delay: 1 },
+      ];
     
     return (
         <div className="relative w-[335px] h-[534px] bg-gradient-to-b from-gray-800/80 to-gray-900/90 rounded-xl overflow-hidden flex flex-col items-center justify-center">
@@ -17,7 +28,7 @@ export const ReachTarget = () => {
             <div className="absolute -right-12 -top-24 w-50 h-50 rounded-full bg-[#12151b] blur-[40px]"></div>
             <div className="absolute -left-26 -top-20 w-50 h-50 rounded-full bg-[#12151b] blur-[80px]"></div>
             {/* Card Border Glow */}
-            <div className="absolute inset-0 rounded-xl border border-t-[#6981b1] border-r-[#6981b1] border-r-2 border-b-1 border-b-[#6981b1] border-l-[#6981b1]"></div>
+            <div className="absolute inset-0 rounded-xl border border-t-[#6981b1] border-r-[#6981b1] border-r-3 border-b-1 border-b-[#6981b1] border-l-[#6981b1]"></div>
             
             {/* Radar Scanner */}
             <div className="relative w-90 h-90 flex items-center justify-center">
@@ -51,17 +62,30 @@ export const ReachTarget = () => {
                         />
                     </svg>
                 </div>
+
+                {/* Floating User Icons */}
+                {userPositions.map((pos, index) => (
+                    <motion.div
+                    key={index}
+                    className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2"
+                    initial={{ x: pos.x, y: pos.y, opacity: 0.3 }}
+                    animate={{ y: [pos.y, pos.y + 10, pos.y], opacity: [0.3, 1, 0] }}
+                    transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: pos.delay }}
+                    >
+                    <User className="w-10 h-10 text-blue-400" />
+                    </motion.div>
+                ))}
             </div>
             
-            {/* Text Content */}
-            <div className="absolute bottom-6 w-full px-6">
-                <h3 className="text-sm font-bold text-transparent bg-gradient-to-r from-[#d8dde9] via-[#5b6fdd] to-[#687cf0] bg-clip-text">
+                 {/* Bottom Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
+                    <h3 className="text-sm font-semibold  mb-2 text-transparent bg-gradient-to-r from-[#f2f3f5] via-[#c2cbff] to-[#7b8fff] bg-clip-text">
                     Reach Target Audience
-                </h3>
-                <p className="text-slate-200 text-sm mt-2">
+                    </h3>
+                    <p className="text-slate-200 text-sm ">
                     Pinpoint the perfect audience with precision. Our AI-driven targeting ensures every message resonates where it matters most.
-                </p>
-            </div>
+                    </p>
+                </div>
         </div>
     );
 };

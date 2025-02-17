@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: 'Futura';
+    src: url('/fonts/futura-book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+body {
+    font-family: "Futura";
+}
+
 body {
   background-color: #050506;
   position: relative;
@@ -35,7 +46,7 @@ body {
   background: linear-gradient(to bottom, rgba(53, 58, 67, 0.9), transparent);
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   opacity: 0.6;
-  backdrop-filter: blur(0.2rem);
+  backdrop-filter: blur(10rem);
 }
 
 .glowing-triangle2 {
@@ -63,13 +74,31 @@ body {
 .blade-effect {
   position: absolute;
   top: 0;
-  left: -150%;
-  width: 150%;
+  left: -20%; /* Start fully off-screen */
+  width: 8%; /* Make it thinner */
   height: 100%;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.05)
+  );
   transform: skewX(-20deg);
-  animation: blade-swipe 2.5s ease-out forwards;
+  animation: blade-swipe 3.5s linear infinite;
 }
+
+@keyframes blade-swipe {
+  0% {
+    transform: translateX(-100%) skewX(-20deg);
+  }
+  80% {
+    transform: translateX(100vw) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(120vw) skewX(-20deg); /* Reset slightly off-screen */
+  }
+}
+
 
 /* Softer Glow Effect on Hover */
 .hover\:text-glow:hover {
@@ -91,7 +120,7 @@ body {
 
 .border-glow {
   position: relative;
-  border:12px solid transparent;
+  border:10px solid transparent;
   border-radius: 2.5rem;
   animation: border-glow-move 4s linear infinite;
 }
@@ -182,12 +211,17 @@ body {
 /* Hover effect */
 .platform-card:hover {
   transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(145, 161, 232, 0.7);
 }
 
 /* Increase glow effect on hover */
 .platform-card:hover .glow-overlay {
   opacity: 0.5;
-  transform: scale(1.3);
+  transform: scale(1.2);
+}
+
+.platform-card:hover .icon-container {
+  transform: scale(1.2);
 }
 
 /* Image container to prevent size issues */
@@ -536,6 +570,22 @@ body {
   right: -80px;
 }
 
+/* btn border animation moving around edges */
+/* animation for bordr to moves along edges of div */
+@keyframes border-move {
+  0%   { box-shadow: inset 0px 0px 2px #314162; }
+  25%  { box-shadow: inset 2px 0px 2px #314162}
+  50%  { box-shadow: inset 0px 2px 2px #314162 }
+  75%  { box-shadow: inset -2px 0px 2px #314162}
+  100% { box-shadow: inset 0px 0px 2px #314162 }
+}
+.border-glow-move {
+  position: relative;
+  border:1px solid transparent;
+  border-radius: 2.5rem;
+  animation: border-move 4s linear infinite;
+}
+
 /* Feature Icons */
 .feature-icon-container {
   margin-bottom: 24px;
@@ -639,4 +689,59 @@ body {
   .features-title {
     font-size: 36px;
   }
+}
+
+
+/* Triangular flashlight effect with grid overlay */
+.triangular-flashlight {
+  position: absolute;
+  top: 42%;
+  width: 33%;
+  height: 60%;
+  background: linear-gradient(to bottom, rgba(53, 58, 67, 0.9), transparent);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  opacity: 0.6;
+  backdrop-filter: blur(10rem);
+  /* Add a glowing box-shadow */
+  box-shadow: 0 0 20px rgba(59,130,246,0.7);
+}
+
+.triangular-flashlight::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Overlay a grid pattern of small squares using two gradients with different angles */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px; /* Adjust square size */
+  pointer-events: none;
+  opacity: 1; /* Adjust for visibility */
+}
+
+/* Triangular flashlight effect with grid overlay */
+.triangular-flashlight2 {
+  position: absolute;
+  top: 42%;
+  width: 38%;
+  height: 60%;
+  background: linear-gradient(to bottom, rgba(156, 189, 255, 0.9), transparent);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  opacity: 0.6;
+  backdrop-filter: blur(10rem);
+  /* Add a glowing box-shadow */
+  box-shadow: 0 0 20px rgba(59,130,246,0.7);
+}
+
+.triangular-flashlight2::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Overlay a grid pattern of small squares using two gradients with different angles */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  opacity: 1; 
 }
