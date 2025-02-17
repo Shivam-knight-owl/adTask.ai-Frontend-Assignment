@@ -1,3 +1,5 @@
+import youtube from "../assets/utube.png";
+
 export const VideoDiv = () => {
     return (
       <div className="flex justify-center items-center ">
@@ -7,7 +9,7 @@ export const VideoDiv = () => {
           <span className="text-white text-7xl opacity-28 font-semibold z-0">AdTask.ai</span>
           
           <div className="absolute inset-0 flex items-center justify-center z-10">
-            <img src="/src/assets/utube.png" alt="Video" width={75} height={75} />
+            <img src={youtube} alt="Video" width={75} height={75} />
           </div>
         </div>
       </div>

@@ -1,13 +1,12 @@
 import { useEffect, useRef } from "react";
+import google from "../assets/google.png";
+import salesforce from "../assets/salesforce2.jpg";
+import amazon from "../assets/amazon5.jpg";
+import sony from "../assets/sony3.webp";
+import cocacola from "../assets/cocacola2.png";
+import intel from "../assets/intel2.png";
 
-const logos = [
-  "/src/assets/google.png",
-  "/src/assets/salesforce2.jpg",
-  "/src/assets/amazon5.jpg",
-  "/src/assets/sony3.webp",
-  "/src/assets/cocacola2.png",
-  "/src/assets/intel2.png",
-];
+const logos = [google, salesforce, amazon, sony, cocacola, intel];
 
 export const CompanyBanner = () => {
   const bannerRef = useRef<HTMLDivElement>(null);
